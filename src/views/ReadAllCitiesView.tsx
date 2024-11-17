@@ -1,29 +1,20 @@
-import {City} from "../models/City";
+import { City } from "../models/City";
 import { Layout } from "./shared/Layout";
 
-type ReadAllCitiesViewProps = {
-  cities: Array<City>;
-};
+type ReadAllCitiesViewProps={
+  cities:City[]
+}
 
-const CityLink = ({ city }: { city: City }) => (
-  <li>
-    <a href="#">{city.name}</a>
-  </li>
-);
+const ReadAllCitiesView = ({cities}:ReadAllCitiesViewProps) =>
+  <Layout pageTitle="Our cities in Europe" h1content="List of our cities in Europe :">
+    
+    <ul>
+      {cities.map(c=><li><a href={"/cities/"+c.slug}>{c.name}</a></li>)}
+    </ul>
+    <a href="/">
+        Retour à la page d'accueil
+      </a>
 
-const CitiesList = ({ cities }: { cities: City[] }) => (
-  <ul>
-    {cities.map((city) => (
-      <CityLink city={city} />
-    ))}
-  </ul>
-);
+  </Layout>
 
-const ReadAllCitiesView = ({ cities }: ReadAllCitiesViewProps) => (
-    <Layout pageTitle="liste de villes">
-      <CitiesList cities={cities} />
-    </Layout>
-
-);
-
-export default ReadAllCitiesView;
+  export default ReadAllCitiesView; 

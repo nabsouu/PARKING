@@ -18,7 +18,7 @@ describe('toSlug', ()=>{
     }); 
 
     test("toSlug doit transformer les espaces en tirets",()=>{
-        expect(toSlug("Salut les amies")).toBe("salut-les-amies");
+        expect(toSlug("Aix-en-Provence")).toBe("aix-en-provence");
     });
 
     test("toSlug doit enlever les accents",()=>{

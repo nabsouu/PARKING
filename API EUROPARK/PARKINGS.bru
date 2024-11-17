@@ -5,7 +5,11 @@ meta {
 }
 
 get {
-  url: http://localhost:3000/cities
+  url: http://localhost:3000/parkings
   body: none
   auth: none
+}
+
+assert {
+  res.status: eq 200
 }

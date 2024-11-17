@@ -20,7 +20,7 @@ export class City{
         this.location=location;
     }
 
-
+    
 
 
 }

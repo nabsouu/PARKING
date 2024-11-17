@@ -1,0 +1,46 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model cities {
+  id       Int        @id @default(autoincrement())
+  name     String     @unique(map: "sqlite_autoindex_cities_1")
+  slug     String     @unique(map: "sqlite_autoindex_cities_2")
+  location String?
+  country  String
+  parkings parkings[]
+}
+
+model parkings {
+  id            Int     @id @default(autoincrement())
+  name          String  @unique(map: "sqlite_autoindex_parkings_1")
+  location      String?
+  numberOfSpots Int
+  opened        Int     @default(1)
+  hourlyRate    Float
+  city_id       Int
+  cities        cities  @relation(fields: [city_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  spots         spots[]
+}
+
+model parks {
+  id                 String  @id
+  startedAt          String
+  endedAt            String?
+  vehicleNumberPlate String?
+  spot_id            Int
+  price              Float   @default(0)
+  spots              spots   @relation(fields: [spot_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model spots {
+  id         Int      @id @default(autoincrement())
+  parking_id Int
+  parks      parks[]
+  parkings   parkings @relation(fields: [parking_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}

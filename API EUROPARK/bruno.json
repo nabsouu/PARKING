@@ -1,9 +1,136 @@
 {
-  "version": "1",
   "name": "API EUROPARK",
-  "type": "collection",
-  "ignore": [
-    "node_modules",
-    ".git"
-  ]
+  "version": "1",
+  "items": [
+    {
+      "type": "http",
+      "name": "CITIES",
+      "seq": 2,
+      "request": {
+        "url": "http://localhost:3000/cities",
+        "method": "GET",
+        "headers": [],
+        "params": [],
+        "body": {
+          "mode": "none",
+          "formUrlEncoded": [],
+          "multipartForm": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [
+          {
+            "name": "res.status",
+            "value": "eq 200",
+            "enabled": true,
+            "uid": "jp9VZD889RO0vvYJDIPfE"
+          }
+        ],
+        "tests": "",
+        "auth": {
+          "mode": "none"
+        }
+      }
+    },
+    {
+      "type": "http",
+      "name": "IDENTIFIANTPARKING",
+      "seq": 5,
+      "request": {
+        "url": "http://localhost:3000/parkings/888555",
+        "method": "GET",
+        "headers": [],
+        "params": [],
+        "body": {
+          "mode": "none",
+          "formUrlEncoded": [],
+          "multipartForm": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [
+          {
+            "name": "res.status",
+            "value": "eq 404",
+            "enabled": true,
+            "uid": "yRC6eCvoj7yiTkT5CMIAz"
+          }
+        ],
+        "tests": "",
+        "auth": {
+          "mode": "none"
+        }
+      }
+    },
+    {
+      "type": "http",
+      "name": "IDENTIFIANTVILLE",
+      "seq": 5,
+      "request": {
+        "url": "http://localhost:3000/cities/bamako",
+        "method": "GET",
+        "headers": [],
+        "params": [],
+        "body": {
+          "mode": "none",
+          "formUrlEncoded": [],
+          "multipartForm": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [
+          {
+            "name": "res.status",
+            "value": "eq 404",
+            "enabled": true,
+            "uid": "cZ52rRt72hMBM9fcOs8Mo"
+          }
+        ],
+        "tests": "",
+        "auth": {
+          "mode": "none"
+        }
+      }
+    },
+    {
+      "type": "http",
+      "name": "PARKINGS",
+      "seq": 4,
+      "request": {
+        "url": "http://localhost:3000/parkings",
+        "method": "GET",
+        "headers": [],
+        "params": [],
+        "body": {
+          "mode": "none",
+          "formUrlEncoded": [],
+          "multipartForm": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [
+          {
+            "name": "res.status",
+            "value": "eq 200",
+            "enabled": true,
+            "uid": "brzQRwPpp0gSkhPsGxzZ5"
+          }
+        ],
+        "tests": "",
+        "auth": {
+          "mode": "none"
+        }
+      }
+    }
+  ],
+  "environments": [],
+  "brunoConfig": {
+    "version": "1",
+    "name": "API EUROPARK",
+    "type": "collection",
+    "ignore": [
+      "node_modules",
+      ".git"
+    ]
+  }
 }
